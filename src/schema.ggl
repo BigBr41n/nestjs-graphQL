@@ -2,11 +2,18 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type UserSettings {
+  userId: Int!
+  receiveNotifications: Boolean!
+  receiveEmails: Boolean!
+}
+
 type User {
   id: Int!
   email: String!
   username: String!
   displayname: String
+  settings: UserSettings
 }
 
 type Query {
