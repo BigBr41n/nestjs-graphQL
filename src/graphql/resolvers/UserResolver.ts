@@ -11,6 +11,7 @@ import { User } from '../models/User';
 import { mockUsers } from 'src/__mocks__/mockUsers';
 import { UserSettings } from '../models/UsersSettings';
 import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
+import { CreateUserInput } from '../utils/CreateUserInput';
 
 @Resolver(() => User)
 export class userResolver {
@@ -30,11 +31,8 @@ export class userResolver {
   }
 
   @Mutation(() => User)
-  createUser(
-    @Args('username') username: string,
-    @Args('displayName', { nullable: true }) displayName: string,
-    @Args('email') email: string,
-  ) {
+  createUser(@Args('createUserData') createUserData: CreateUserInput) {
+    const { username, displayName, email } = createUserData;
     const newUser = {
       id: Math.floor(Math.random() * 101),
       username,
