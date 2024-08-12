@@ -1,7 +1,7 @@
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { UserSettings } from '../models/UsersSettings';
 import { CreateUserSettingsInput } from '../utils/CreateUserSettingsInput';
-import { UserSettingService } from 'src/users/UserSettingsService';
+import { UserSettingService } from '../../users/UserSettingsService';
 
 @Resolver()
 export class UserSettingsResolver {

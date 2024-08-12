@@ -6,6 +6,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from './graphql/models/User';
 import { UserSettings } from './graphql/models/UsersSettings';
 import { UsersModule } from './users/users.module';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
   imports: [
@@ -24,9 +26,13 @@ import { UsersModule } from './users/users.module';
         port: configService.get<number>('DATABASE_PORT'),
         username: configService.get<string>('DATABASE_USERNAME'),
         password: configService.get<string>('DATABASE_PASSWORD'),
-        database: configService.get<string>('DATABASE_NAME'),
+        database:
+          configService.get<string>('NODE_ENV') === 'TEST'
+            ? configService.get<string>('TEST_DB')
+            : configService.get<string>('PROD_DB'),
         entities: [User, UserSettings],
         synchronize: true,
+        logging: false,
       }),
       inject: [ConfigService],
     }),
