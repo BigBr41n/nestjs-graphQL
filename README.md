@@ -32,6 +32,20 @@
 $ pnpm install
 ```
 
+## .env file :
+
+```
+DATABASE_HOST=your_host
+DATABASE_PORT=port-number
+DATABASE_USERNAME=db_username
+DATABASE_PASSWORD=db_password
+PROD_DB=production_db
+TEST_DB=testing_db
+NODE_ENV=current_environment
+DB_ROOT_PASSWORD=root_password
+DB_NAME=db_name
+```
+
 ## Running the app
 
 ```bash
