@@ -1,7 +1,6 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { UserSettingsResolver } from './graphql/resolvers/UserSettingsResolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from './graphql/models/User';
@@ -34,6 +33,6 @@ import { UsersModule } from './users/users.module';
     UsersModule,
   ],
   controllers: [],
-  providers: [UserSettingsResolver],
+  providers: [],
 })
 export class AppModule {}
